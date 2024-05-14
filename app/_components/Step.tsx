@@ -1,7 +1,16 @@
 import { CheckIcon } from "@heroicons/react/24/solid";
 import { StepProps } from "../_types/stepprops-interface";
+import { Tab } from "@headlessui/react";
 
-const Step = ({ step, index }: { step: StepProps; index: number }) => {
+const Step = ({
+  step,
+  index,
+  callback,
+}: {
+  step: StepProps;
+  index: number;
+  callback: (id: string) => void;
+}) => {
   const colorMap = {
     dark_blue: {
       bg: "bg-dark_blue-400",
@@ -60,7 +69,10 @@ const Step = ({ step, index }: { step: StepProps; index: number }) => {
   }
 
   return (
-    <a href={step.href} className="group">
+    <Tab
+      className="group w-full focus:outline-none"
+      onClick={() => callback(step.id)}
+    >
       <span
         className={`absolute left-0 top-0 h-full w-1 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full ${
           step.status === "current"
@@ -90,7 +102,7 @@ const Step = ({ step, index }: { step: StepProps; index: number }) => {
           </span>
         </span>
       </span>
-    </a>
+    </Tab>
   );
 };
 

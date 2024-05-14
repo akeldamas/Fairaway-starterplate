@@ -1,5 +1,6 @@
 import Image from "next/image";
 import StepsWrapper from "./_components/StepsWrapper";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 
 export default function Home() {
   return (
@@ -75,7 +76,14 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <StepsWrapper />
+      <section>
+        <StepsWrapper>
+          <TabPanel>Content1</TabPanel>
+          <TabPanel>Content2</TabPanel>
+          <TabPanel>Content3</TabPanel>
+          <TabPanel>Content4</TabPanel>
+        </StepsWrapper>
+      </section>
     </>
   );
 }
